@@ -1,0 +1,255 @@
+/* Timeline Specific Styles for World Wars Digital Museum Website */
+
+/* Timeline Controls */
+.timeline-controls {
+  background-color: #f0f0f0;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+[data-theme="dark"] .timeline-controls {
+  background-color: #2a2a2a;
+}
+
+.timeline-filter h2,
+.timeline-zoom h2 {
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.filter-btn {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+[data-theme="dark"] .filter-btn {
+  background-color: #333;
+  color: var(--light-text);
+  border-color: #555;
+}
+
+.filter-btn:hover {
+  background-color: #f0f0f0;
+}
+
+[data-theme="dark"] .filter-btn:hover {
+  background-color: #444;
+}
+
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.zoom-slider {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.zoom-slider input[type="range"] {
+  flex: 1;
+}
+
+/* Interactive Timeline */
+.timeline-wrapper {
+  position: relative;
+  margin: var(--spacing-xl) 0;
+}
+
+.timeline-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.year-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 var(--spacing-lg);
+}
+
+.nav-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.nav-btn:hover {
+  background-color: #6b0000;
+}
+
+.timeline-line {
+  height: 4px;
+  background-color: var(--border-color);
+  position: relative;
+  margin: var(--spacing-xl) 0;
+}
+
+.timeline-events {
+  position: relative;
+}
+
+.timeline-event {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+  transition: transform var(--transition-normal);
+}
+
+[data-theme="dark"] .timeline-event {
+  background-color: #2d2d2d;
+}
+
+.timeline-event:hover {
+  transform: translateY(-5px);
+}
+
+.event-date {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: var(--spacing-sm);
+}
+
+.event-content h3 {
+  margin-bottom: var(--spacing-xs);
+}
+
+.event-media {
+  margin: var(--spacing-md) 0;
+}
+
+.event-image {
+  max-width: 100%;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Modal for event details */
+.event-details-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  max-width: 800px;
+  position: relative;
+}
+
+[data-theme="dark"] .modal-content {
+  background-color: #2d2d2d;
+}
+
+.close-modal {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Timeline Legend */
+.timeline-legend {
+  background-color: #f0f0f0;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+}
+
+[data-theme="dark"] .timeline-legend {
+  background-color: #2a2a2a;
+}
+
+.legend-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-left: var(--spacing-sm);
+}
+
+.legend-icon {
+  width: 20px;
+  text-align: center;
+  margin-left: var(--spacing-sm);
+}
+
+.ww1-item .legend-color {
+  background-color: #8b0000;
+}
+
+.interwar-item .legend-color {
+  background-color: #d4af37;
+}
+
+.ww2-item .legend-color {
+  background-color: #4a6fa5;
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+  .filter-options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .timeline-navigation {
+    flex-wrap: wrap;
+  }
+  
+  .year-display {
+    order: -1;
+    width: 100%;
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .legend-items {
+    grid-template-columns: 1fr;
+  }
+}

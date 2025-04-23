@@ -1,0 +1,239 @@
+/* Human Stories Page Specific Styles for World Wars Digital Museum Website */
+
+/* Stories Filter */
+.stories-filter {
+  background-color: #f0f0f0;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+[data-theme="dark"] .stories-filter {
+  background-color: #2a2a2a;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+/* Stories Grid */
+.stories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.story-card {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="dark"] .story-card {
+  background-color: #2d2d2d;
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.story-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.story-card:hover .story-image img {
+  transform: scale(1.05);
+}
+
+.story-content {
+  padding: var(--spacing-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.story-meta {
+  color: #666;
+  font-style: italic;
+  margin-bottom: var(--spacing-sm);
+}
+
+[data-theme="dark"] .story-meta {
+  color: #aaa;
+}
+
+.story-excerpt {
+  margin-bottom: var(--spacing-md);
+  flex: 1;
+}
+
+.story-media {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.media-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.9rem;
+  color: #666;
+  background-color: #f0f0f0;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+}
+
+[data-theme="dark"] .media-icon {
+  color: #ddd;
+  background-color: #3d3d3d;
+}
+
+.media-icon i {
+  color: var(--primary-color);
+}
+
+/* Load More Button */
+.load-more {
+  text-align: center;
+  margin: var(--spacing-lg) 0;
+}
+
+/* Contribute Section */
+.contribute {
+  background-color: #f5f5f5;
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+[data-theme="dark"] .contribute {
+  background-color: #222;
+}
+
+.contribute p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--spacing-lg);
+}
+
+.contribute-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background-color: white;
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+  background-color: #333;
+  border-color: #555;
+  color: var(--light-text);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Oral History Section */
+.oral-history {
+  padding: var(--spacing-xl) 0;
+}
+
+.audio-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.audio-item {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+[data-theme="dark"] .audio-item {
+  background-color: #2d2d2d;
+}
+
+.audio-info h3 {
+  margin-bottom: var(--spacing-xs);
+}
+
+.audio-player {
+  width: 100%;
+}
+
+.audio-player audio {
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .stories {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .stories {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .story-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .audio-item {
+    padding: var(--spacing-md);
+  }
+}

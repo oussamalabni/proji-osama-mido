@@ -1,0 +1,1424 @@
+/* Main Styles for World Wars Digital Museum Website */
+
+/* ===== Variables ===== */
+:root {
+  /* Colors */
+  --primary-color: #8b0000; /* Dark red */
+  --secondary-color: #d4af37; /* Gold */
+  --dark-bg: #1a1a1a;
+  --light-bg: #f5f5f5;
+  --dark-text: #333;
+  --light-text: #f5f5f5;
+  --border-color: #ddd;
+  --accent-color: #4a6fa5; /* Blue-gray */
+  
+  /* Fonts */
+  --heading-font: 'Amiri', 'Times New Roman', serif;
+  --body-font: 'Cairo', 'Arial', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Border Radius */
+  --border-radius-sm: 3px;
+  --border-radius-md: 5px;
+  --border-radius-lg: 10px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  line-height: 1.6;
+  color: var(--dark-text);
+  background-color: var(--light-bg);
+  direction: rtl;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  margin-bottom: var(--spacing-md);
+  padding-right: var(--spacing-lg);
+}
+
+/* ===== Container ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* ===== Header & Navigation ===== */
+header {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  color: var(--light-text);
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin-bottom: 0;
+  padding-right: 0;
+}
+
+.nav-links li {
+  margin-right: var(--spacing-md);
+}
+
+.nav-links li:last-child {
+  margin-right: 0;
+}
+
+.nav-links a {
+  color: var(--light-text);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.language-selector select {
+  background-color: transparent;
+  color: var(--light-text);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  height: 70vh;
+  min-height: 400px;
+  background-color: var(--dark-bg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://mtxhyfem.manus.space/images/common/hero-bg.webp');
+  background-size: cover;
+  background-position: center;
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: var(--spacing-lg);
+  z-index: 1;
+}
+
+.main-title {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-lg);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+/* War-specific hero backgrounds */
+.ww1-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/ww1/australian_soldiers_egypt_1918.webp');
+}
+
+.ww2-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/ww2/german_aircraft_ww2_palestine.webp');
+}
+
+.timeline-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://mtxhyfem.manus.space/images/common/timeline-bg.webp');
+}
+
+.comparison-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://mtxhyfem.manus.space/images/common/comparison-bg.webp');
+}
+
+.human-stories-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://mtxhyfem.manus.space/images/common/stories-bg.webp');
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+}
+
+.btn-primary:hover {
+  background-color: #6b0000;
+  color: var(--light-text);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--dark-text);
+}
+
+.btn-secondary:hover {
+  background-color: #b59030;
+  color: var(--dark-text);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+}
+
+/* ===== Sections ===== */
+section {
+  padding: var(--spacing-xl) 0;
+}
+
+.intro {
+  background-color: var(--light-bg);
+  text-align: center;
+}
+
+.intro p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== Cards ===== */
+.section-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.card {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-content {
+  padding: var(--spacing-lg);
+}
+
+.card-content h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.card-content p {
+  margin-bottom: var(--spacing-lg);
+  color: #666;
+}
+
+/* Card background images */
+.ww1-bg {
+  background-image: url('../images/ww1/australian_soldiers_egypt_1918.webp');
+}
+
+.ww2-bg {
+  background-image: url('../images/ww2/german_aircraft_ww2_palestine.webp');
+}
+
+.timeline-bg {
+  background-image: url('https://mtxhyfem.manus.space/images/common/timeline-card-bg.webp');
+}
+
+.stories-bg {
+  background-image: url('https://mtxhyfem.manus.space/images/common/stories-card-bg.webp');
+}
+
+/* ===== Timeline Preview ===== */
+.timeline-preview {
+  margin: var(--spacing-lg) 0;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+
+.timeline-date {
+  flex: 0 0 100px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.timeline-content {
+  flex: 1;
+  border-right: 3px solid var(--primary-color);
+  padding-right: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+}
+
+.timeline-content h3 {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ===== Impact Grid ===== */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.impact-item {
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.impact-item i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+/* ===== Feature Icons ===== */
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-md);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+}
+
+.ww1-icon {
+  background-image: url('../images/ww1/australian_soldiers_egypt_1918.webp');
+}
+
+.ww2-icon {
+  background-image: url('../images/ww2/german_aircraft_ww2_palestine.webp');
+}
+
+.timeline-icon {
+  background-image: url('https://mtxhyfem.manus.space/images/common/timeline-icon.webp');
+}
+
+.stories-icon {
+  background-image: url('https://mtxhyfem.manus.space/images/common/stories-icon.webp');
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  padding: var(--spacing-xl) 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.footer-logo h2 {
+  color: var(--light-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-links h3,
+.footer-accessibility h3 {
+  color: var(--light-text);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-links a {
+  color: var(--light-text);
+  opacity: 0.8;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.text-size-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.text-size-controls span {
+  margin-left: var(--spacing-sm);
+}
+
+.text-size-controls button {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--light-text);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  margin-left: var(--spacing-xs);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+}
+
+.contrast-toggle {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--light-text);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+}
+
+.copyright {
+  margin-top: var(--spacing-lg);
+  text-align: center;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: var(--spacing-md);
+  }
+  
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--dark-bg);
+    padding: var(--spacing-md);
+    display: none;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-right: 0;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+/* ===== Hero Section ===== */
+.hero-section {
+  height: 70vh;
+  min-height: 400px;
+  background-color: var(--dark-bg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/ww1/australian_soldiers_egypt_1918.webp');
+  background-size: cover;
+  background-position: center;
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.subpage-hero {
+  height: 50vh;
+  min-height: 300px;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: var(--spacing-lg);
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-lg);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+/* War-specific hero backgrounds */
+.ww1-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/ww1/australian_soldiers_egypt_1918.webp');
+}
+
+.ww2-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/ww2/german_aircraft_ww2_palestine.webp');
+}
+
+/* ===== Content Section ===== */
+.content-section {
+  padding: var(--spacing-xl) 0;
+}
+
+.breadcrumbs {
+  margin-bottom: var(--spacing-lg);
+  color: #666;
+}
+
+.breadcrumbs a {
+  color: var(--primary-color);
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: var(--spacing-lg);
+}
+
+.main-content {
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+  align-self: start;
+}
+
+.sidebar-widget {
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: var(--spacing-lg);
+}
+
+.sidebar-widget h3 {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.toc, .related-topics {
+  list-style: none;
+  padding: 0;
+}
+
+.toc li, .related-topics li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.quick-facts .fact {
+  margin-bottom: var(--spacing-md);
+}
+
+.fact-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.content-with-image {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.image-content img {
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: var(--spacing-sm);
+  text-align: center;
+}
+
+.related-content {
+  background-color: var(--light-bg);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.related-card {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .content-with-image {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== Mobile Menu Toggle ===== */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--light-text);
+  margin: 5px 0;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--dark-bg);
+    padding: var(--spacing-md);
+    display: none;
+    z-index: 1000;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-right: 0;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .theme-toggle, .language-selector {
+    margin-left: var(--spacing-md);
+  }
+}
+
+/* ===== Dark Mode Toggle ===== */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.moon-icon, .sun-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity var(--transition-fast);
+}
+
+.moon-icon::before {
+  content: "🌙";
+}
+
+.sun-icon::before {
+  content: "☀️";
+  opacity: 0;
+}
+
+body.dark-mode .moon-icon::before {
+  opacity: 0;
+}
+
+body.dark-mode .sun-icon::before {
+  opacity: 1;
+}
+
+/* ===== Accessibility Features ===== */
+body.text-size-small {
+  font-size: 14px;
+}
+
+body.text-size-medium {
+  font-size: 16px;
+}
+
+body.text-size-large {
+  font-size: 18px;
+}
+
+body.high-contrast {
+  --primary-color: #ff0000;
+  --secondary-color: #ffff00;
+  --dark-bg: #000000;
+  --light-bg: #ffffff;
+  --dark-text: #000000;
+  --light-text: #ffffff;
+  --border-color: #000000;
+}
+
+body.high-contrast .card,
+body.high-contrast .sidebar-widget,
+body.high-contrast .main-content,
+body.high-contrast .impact-item,
+body.high-contrast .related-card {
+  border: 2px solid #000000;
+}
+
+body.high-contrast a {
+  text-decoration: underline;
+}
+
+/* ===== Timeline Styles ===== */
+.timeline-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+}
+
+.timeline-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.timeline-filter {
+  background-color: var(--light-bg);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.timeline-filter:hover,
+.timeline-filter.active {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  border-color: var(--primary-color);
+}
+
+.timeline-zoom {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.zoom-control {
+  background-color: var(--light-bg);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.zoom-control:hover {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  border-color: var(--primary-color);
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  width: 4px;
+  background-color: var(--primary-color);
+  margin-right: -2px;
+}
+
+.timeline-event {
+  position: relative;
+  margin-bottom: var(--spacing-xl);
+}
+
+.timeline-event:nth-child(odd) {
+  padding-left: 50%;
+  padding-right: var(--spacing-lg);
+  text-align: left;
+}
+
+.timeline-event:nth-child(even) {
+  padding-right: 50%;
+  padding-left: var(--spacing-lg);
+  text-align: right;
+}
+
+.timeline-event-content {
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.timeline-event-content::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  transform: rotate(45deg);
+}
+
+.timeline-event:nth-child(odd) .timeline-event-content::after {
+  right: -10px;
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+}
+
+.timeline-event:nth-child(even) .timeline-event-content::after {
+  left: -10px;
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+}
+
+.timeline-date {
+  position: absolute;
+  top: 20px;
+  width: 100px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  border-radius: var(--border-radius-sm);
+  text-align: center;
+  font-weight: bold;
+}
+
+.timeline-event:nth-child(odd) .timeline-date {
+  right: calc(50% + var(--spacing-lg));
+}
+
+.timeline-event:nth-child(even) .timeline-date {
+  left: calc(50% + var(--spacing-lg));
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 20px;
+  right: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  margin-right: -10px;
+  border: 4px solid white;
+  box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+.timeline-event-content h3 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-color);
+}
+
+.timeline-event-content p {
+  margin-bottom: var(--spacing-md);
+}
+
+.timeline-event-image {
+  margin-top: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+}
+
+.timeline-event-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    right: 30px;
+    margin-right: 0;
+  }
+  
+  .timeline-event:nth-child(odd),
+  .timeline-event:nth-child(even) {
+    padding-left: 80px;
+    padding-right: 0;
+    text-align: left;
+  }
+  
+  .timeline-event:nth-child(odd) .timeline-date,
+  .timeline-event:nth-child(even) .timeline-date {
+    right: auto;
+    left: 0;
+  }
+  
+  .timeline-dot {
+    right: 30px;
+    margin-right: 0;
+  }
+  
+  .timeline-event:nth-child(odd) .timeline-event-content::after,
+  .timeline-event:nth-child(even) .timeline-event-content::after {
+    left: -10px;
+    right: auto;
+    border-bottom: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    border-top: none;
+    border-right: none;
+  }
+}
+
+/* ===== Comparison Styles ===== */
+.comparison-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+}
+
+.comparison-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.comparison-tab {
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.comparison-tab:hover,
+.comparison-tab.active {
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.comparison-content {
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-section {
+  display: none;
+}
+
+.comparison-section.active {
+  display: block;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-lg);
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.comparison-table th {
+  background-color: var(--light-bg);
+  font-weight: bold;
+}
+
+.comparison-table th:first-child {
+  text-align: right;
+}
+
+.comparison-table td:first-child {
+  text-align: right;
+  font-weight: bold;
+}
+
+.comparison-slider {
+  position: relative;
+  margin: var(--spacing-lg) 0;
+  overflow: hidden;
+  height: 400px;
+}
+
+.comparison-slider-before,
+.comparison-slider-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.comparison-slider-before {
+  z-index: 1;
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.comparison-slider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background-color: var(--primary-color);
+  z-index: 3;
+  cursor: ew-resize;
+}
+
+.comparison-slider-handle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.comparison-slider-handle::after {
+  content: '⟷';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.2rem;
+}
+
+.comparison-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.comparison-chart {
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-chart h3 {
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.chart-container {
+  height: 300px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .comparison-tabs {
+    flex-wrap: wrap;
+  }
+  
+  .comparison-tab {
+    flex: 1 0 auto;
+    text-align: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .comparison-slider {
+    height: 300px;
+  }
+}
+
+/* ===== Human Stories Styles ===== */
+.stories-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+}
+
+.stories-filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.story-filter {
+  background-color: var(--light-bg);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.story-filter:hover,
+.story-filter.active {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  border-color: var(--primary-color);
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.story-card {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.story-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.story-category {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+}
+
+.story-content {
+  padding: var(--spacing-lg);
+}
+
+.story-content h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.story-meta {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.story-content p {
+  margin-bottom: var(--spacing-lg);
+}
+
+.story-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: var(--spacing-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.story-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.story-modal-content {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.story-modal-close {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--dark-text);
+}
+
+.story-modal-image {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.story-modal-body {
+  padding: var(--spacing-lg);
+}
+
+.story-modal-body h2 {
+  margin-bottom: var(--spacing-md);
+}
+
+.story-modal-meta {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.story-modal-body p {
+  margin-bottom: var(--spacing-md);
+}
+
+.story-modal-quote {
+  border-right: 4px solid var(--primary-color);
+  padding: var(--spacing-md);
+  background-color: var(--light-bg);
+  margin: var(--spacing-lg) 0;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .story-modal-content {
+    max-width: 100%;
+  }
+  
+  .story-modal-image {
+    height: 200px;
+  }
+}
+
+/* ===== Feature Icons ===== */
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-md);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+}
+
+.ww1-icon {
+  background-image: url('../images/ww1/australian_soldiers_egypt_1918.webp');
+}
+
+.ww2-icon {
+  background-image: url('../images/ww2/german_aircraft_ww2_palestine.webp');
+}
+
+.timeline-icon {
+  background-image: url('../images/ww1/australian_soldiers_egypt_1918.webp');
+}
+
+.stories-icon {
+  background-image: url('../images/ww2/german_aircraft_ww2_palestine.webp');
+}

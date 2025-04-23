@@ -1,0 +1,249 @@
+/* Accessibility Enhancements for World Wars Digital Museum Website */
+
+/* Focus Styles */
+:focus {
+  outline: 3px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+/* Skip Navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Text Readability */
+body {
+  line-height: 1.6;
+}
+
+p, li, td, th, button, input, select, textarea {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Color Contrast */
+.high-contrast {
+  --text-color: #000;
+  --background-color: #fff;
+  --link-color: #0000EE;
+  --link-visited-color: #551A8B;
+  --button-bg: #0000EE;
+  --button-text: #fff;
+}
+
+.high-contrast body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.high-contrast a {
+  color: var(--link-color);
+}
+
+.high-contrast a:visited {
+  color: var(--link-visited-color);
+}
+
+.high-contrast .btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+/* Form Elements */
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input, select, textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* ARIA Roles and Attributes */
+[role="button"],
+button {
+  cursor: pointer;
+}
+
+[aria-hidden="true"] {
+  display: none;
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Keyboard Navigation */
+.keyboard-nav a:focus,
+.keyboard-nav button:focus,
+.keyboard-nav input:focus,
+.keyboard-nav select:focus,
+.keyboard-nav textarea:focus {
+  outline: 3px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+/* Text Resize */
+html {
+  font-size: 100%;
+}
+
+.text-size-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.text-size-controls button {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.text-size-small {
+  font-size: 0.8em;
+}
+
+.text-size-medium {
+  font-size: 1em;
+}
+
+.text-size-large {
+  font-size: 1.2em;
+}
+
+/* Image Alternatives */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: right;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+caption {
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+/* Responsive Tables */
+@media screen and (max-width: 600px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Animations and Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dark Mode Accessibility */
+@media (prefers-color-scheme: dark) {
+  .dark-mode-auto {
+    --text-color: #f0f0f0;
+    --background-color: #121212;
+    --link-color: #90caf9;
+    --link-visited-color: #ce93d8;
+    --button-bg: #90caf9;
+    --button-text: #121212;
+  }
+  
+  .dark-mode-auto body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  
+  .dark-mode-auto a {
+    color: var(--link-color);
+  }
+  
+  .dark-mode-auto a:visited {
+    color: var(--link-visited-color);
+  }
+  
+  .dark-mode-auto .btn {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+  }
+}
+
+/* RTL Support Enhancements */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .nav-links {
+  padding-right: 0;
+}
+
+[dir="rtl"] .timeline-event::before {
+  right: -10px;
+  left: auto;
+}
+
+[dir="rtl"] .event-date {
+  text-align: left;
+}
+
+/* Accessibility JavaScript Hooks */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+.js-focus-visible .focus-visible {
+  outline: 3px solid #4a90e2;
+  outline-offset: 2px;
+}
